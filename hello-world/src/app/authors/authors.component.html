@@ -1,0 +1,14 @@
+<p>hello Angular</p>
+
+<ul> {{authors.length}} authors
+
+    <li *ngFor='let auth of authors'>
+            {{auth}}
+    </li>
+</ul>
+
+<span><button class="btn btn-primary" [style.backgroundColor]= "isActive? 'green': 'yellow'"  [class.active]="isActive">Save</button></span>
+<span (click)="onSpanStop($event)"><button class="btn btn-primary"  [class.active]="isActive" (click)="onStop($event)">Stop</button></span>
+
+<!--input [value]="email"  (keyup.enter)="email=$event.target.value;inputKeyup()"-->
+<input [(ngModel)]="email"  (keyup.enter)="inputKeyup()">

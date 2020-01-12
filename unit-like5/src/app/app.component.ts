@@ -6,5 +6,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'hello-world';
+  title = 'unit-like5';
+  tweet = {
+    body: "this is the body",
+    isFavorite:true,
+    likesCount:10
+  }
+  onChange(){
+    console.log("change event triggered");
+  }
 }

@@ -1,0 +1,9 @@
+<p>like works!</p>
+<link href = "http://netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel = "stylesheet">
+<span class="glyphicon glyphicon-heart"
+    [style.color]="isLiked?'deeppink':'#ccc'"
+    (click)=onClick()
+    style="cursor:pointer">{{likesCount}}
+
+</span>
+

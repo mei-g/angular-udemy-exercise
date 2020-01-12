@@ -1,0 +1,60 @@
+<link href = "http://netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel = "stylesheet">
+
+<form [formGroup] = "form" (ngSubmit)=login()>
+    <!--div *ngIf="form.errors" class="alert alert-danger"> username ro pwd invalid</div-->
+
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input
+                formControlName="username" 
+                id="username" 
+                type="text" 
+                class="form-control">
+                <div *ngIf="username.pending"> checking for uniqueness ...</div>
+                <div *ngIf="username.touched && !username.valid" class="alert alert-danger">
+                    <div *ngIf="username.errors.required">username is required</div>
+                    <div *ngIf="username.errors.minlength">username should be at least 3 chars</div>
+                    <div *ngIf="username.errors.cannotContainSpace">username can't have spaces</div>
+                    <div *ngIf="username.errors.shouldBeUnique">username already taken</div>
+                </div>
+        </div>
+        <div class="form-group">
+            <label for="oldPassword">Old Password</label>
+            <input
+                 formControlName="oldPassword" 
+                id="oldPassword" 
+                type="password" 
+                class="form-control">
+                <div *ngIf="oldPasswd.touched && !oldPasswd.valid" class="alert alert-danger">
+                    <div *ngIf="oldPasswd.errors.required">old password is required</div>
+                    <div *ngIf="oldPasswd.errors.oldPassswordInvalid">incorrect password</div>
+                </div>
+        </div>
+        <div class="form-group">
+            <label for="newPassword">New Password</label>
+            <input
+                 formControlName="newPassword" 
+                id="newPassword" 
+                type="password" 
+                class="form-control">
+                <div *ngIf="newPasswd.touched && !newPasswd.valid" class="alert alert-danger">
+                    <div *ngIf="newPasswd.errors.required">new password is required</div>
+                </div>
+        </div>
+        <div class="form-group">
+            <label for="confPassword">Confirm Password</label>
+            <input
+                 formControlName="confPassword" 
+                id="confPassword" 
+                type="password" 
+                class="form-control">
+                <div *ngIf="confPasswd.touched && !confPasswd.valid" class="alert alert-danger">
+                    <div *ngIf="confPasswd.errors.required">confirm password is required</div>
+                </div>
+                <div *ngIf="confPasswd.touched && !form.valid && form.errors.confPassswordShouldMatch">
+                    password don't match
+                </div>
+        </div>      
+
+    <button class="btn btn-primary" type="submit">Update Password</button>
+</form>
